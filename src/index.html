@@ -8,7 +8,25 @@
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
-    <h1 class="title">Hello</h1>
+    <div class="container">
+      <form class="form" novalidate>
+        <label class="form__input-wrap" for="phone-input">
+          <input
+            id="phone-input"
+            type="text"
+            name="phone"
+            placeholder="Ваш номер..."
+            required
+          />
+        </label>
+        <button class="form__button" type="submit">
+          <div class="form__button-content">
+            <span class="form__button-text">Заказать</span>
+            <span class="form__button-icon">icon</span>
+          </div>
+        </button>
+      </form>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>
