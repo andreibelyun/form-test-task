@@ -66,6 +66,10 @@ body {
   cursor: pointer;
 }
 
+.form__button:hover {
+  opacity: .9;
+}
+
 .form__button-content {
   transform: skew(45deg);
   color: white;
@@ -75,7 +79,7 @@ body {
 .form__button-text {
   color: white;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 18px;
 }
 
