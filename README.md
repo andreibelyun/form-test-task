@@ -2,13 +2,15 @@
 
 ## How to run
 
-In the project directory enter the following commands:
+The project is available at: https://andreibelyun.github.io/form-test-task/
+
+You can also download the project and enter the following commands in the project directory:
 
 `npm i` - install project dependencies
 
 `npm run dev` - run project in hot-reload mode
 
-Open [http://localhost:3000](http://localhost:3001) to view it in the browser.
+Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
 ## Technologies
 
