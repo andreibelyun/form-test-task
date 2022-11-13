@@ -1,19 +1,45 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-$background: repeating-linear-gradient(
+$main-bgr: #333;
+$gradient-bgr: repeating-linear-gradient(
   -55deg,
   #222,
   #222 10px,
   #333 10px,
   #333 20px
 );
+$btn-text-color: #fff;
+$btn-bgr-color: red;
+$input-bgr-color: rgba(240, 240, 240, 0.7);
+$input-text-color: #404040;
+$input-pl-text-color: #656565;
+$font-stack: "Font Awesome 6 Free", Arial, Helvetica, sans-serif;
+$skew-angle: 45deg;
+
+$breakpoint-mobile: 576px;
+$breakpoint-tablet: 768px;
+
+@mixin flex-general {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin wrap-style {
+  height: 55px;
+  border: 1px solid #fff;
+  transform: skew(-$skew-angle);
+}
+
+@mixin wrap-content-style {
+  transform: skew($skew-angle);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  background-color: #333;
+  background-color: $main-bgr;
 }
 
 .container {
@@ -21,102 +47,95 @@ body {
   height: 100vh;
   margin: 0 auto;
   padding-top: 10%;
-  background: $background;
-  display: flex;
-  justify-content: center;
-  font-family: "Font Awesome 6 Free", Arial, Helvetica, sans-serif;
+  background: $gradient-bgr;
+  font-family: $font-stack;
+  @include flex-general();
 }
 
 .form {
   width: 70%;
-  display: flex;
-  justify-content: center;
   padding: 0 20px;
+  @include flex-general();
+
+  &__input-wrap {
+    @include wrap-style();
+    width: 60%;
+    background-color: $input-bgr-color;
+    padding: 5px 25px;
+
+    input {
+      @include wrap-content-style();
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: none;
+      border: none;
+      outline: none;
+      color: $input-text-color;
+      font-size: 16px;
+
+      &::placeholder {
+        color: $input-pl-text-color;
+      }
+    }
+  }
+
+  &__button {
+    @include wrap-style();
+    width: 30%;
+    background-color: $btn-bgr-color;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__button-content {
+    @include wrap-content-style();
+    color: $btn-text-color;
+    font-family: $font-stack;
+  }
+
+  &__button-text {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 18px;
+  }
 }
 
-.form__input-wrap {
-  height: 55px;
-  border: 1px solid #fff;
-  transform: skew(-45deg);
-  width: 60%;
-  background-color: rgba(240, 240, 240, 0.7);
-  padding: 5px 25px;
-}
-
-.form__input-wrap input {
-  transform: skew(45deg);
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  background: none;
-  border: none;
-  outline: none;
-  color: #404040;
-  font-size: 16px;
-}
-
-.form__input-wrap input::placeholder {
-  color: #656565;
-}
-
-.form__button {
-  height: 55px;
-  border: 1px solid #fff;
-  transform: skew(-45deg);
-  width: 30%;
-  background-color: red;
-  cursor: pointer;
-}
-
-.form__button:hover {
-  opacity: .9;
-}
-
-.form__button-content {
-  transform: skew(45deg);
-  color: white;
-  font-family: "Font Awesome 6 Free", Arial, Helvetica, sans-serif;
-}
-
-.form__button-text {
-  color: white;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 18px;
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpoint-tablet) {
   .form {
     width: 80%;
-  }
 
-  .form__input-wrap,
-  .form__input-wrap input,
-  .form__button,
-  .form__button-content {
-    transform: none;
-  }
+    &__input-wrap,
+    &__input-wrap input,
+    &__button,
+    &__button-content {
+      transform: none;
+    }
 
-  .form__input-wrap {
-    opacity: 0.8;
-  }
+    &__input-wrap {
+      opacity: 0.8;
+    }
 
-  .form__button-text {
-    font-size: 14px;
-    font-weight: 600;
+    &__button-text {
+      font-size: 14px;
+      font-weight: 600;
+    }
   }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: $breakpoint-mobile) {
   .form {
     width: 100%;
-  }
 
-  .form__input-wrap input {
-    font-size: 14px;
-  }
+    &__input-wrap input {
+      font-size: 14px;
+    }
 
-  .form__button-text {
-    font-size: 11px;
+    &__button-text {
+      font-size: 11px;
+    }
   }
 }
