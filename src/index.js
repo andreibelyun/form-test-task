@@ -1,7 +1,7 @@
 import "@fortawesome/fontawesome-free/css/fontawesome.css";
 import "@fortawesome/fontawesome-free/css/brands.css";
 import "@fortawesome/fontawesome-free/css/solid.css";
-import "./index.css";
+import "./index.scss";
 
 const form = document.querySelector(".form");
 const input = document.querySelector("#phone-input");
